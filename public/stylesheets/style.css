@@ -1,13 +1,13 @@
-@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+@import url("//fonts.googleapis.com/css?family=Monoton");
 
 body {
   font-family: "Cabin", Arial, sans-serif;
   color: #ffffff;
-  background-color: #108a93;
+  background-color: #1F2833;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lobster', cursive;
+  font-family: 'Monoton', cursive;
 }
 
 .navbar {
@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-brand {
-  font-family: 'Lobster', cursive;
+  font-family: 'Monoton', cursive;
 }
 
 .banner {
@@ -76,5 +76,5 @@ h4 small {
 }
 
 legend {
-  font-family: 'Lobster', cursive;
+  font-family: 'Monoton', cursive;
 }
