@@ -25,7 +25,7 @@ const employeeList = (req, res) => {
 };
 
 const employeeInfo = (req, res) => {
-  res.render('index', { title: 'Employee'} );
+  res.render('employee-info', { title: 'Employee Information'} );
 };
 
 const addReview = (req, res) => {

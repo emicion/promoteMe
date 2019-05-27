@@ -76,6 +76,12 @@ h4 small {
   margin-right:4px;
 }
 
+footer {
+  margin-top:2rem;
+  padding: 2rem;
+  background-color: #0B0C10;
+}
+
 legend {
   font-family: 'Monoton', cursive;
 }
