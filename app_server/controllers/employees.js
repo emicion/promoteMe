@@ -1,3 +1,4 @@
+const request = require('request');
 const employeeList = (req, res) => {
   res.render('employee-list', {
     title: 'Employee Feed',

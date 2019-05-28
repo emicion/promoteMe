@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const goalSchema = new mongoose.Schema({
   goalName: {
     type: String,
-    required: true
+    'default': "Coming Soon"
   },
   goalProgress: {
     type: Number,
@@ -16,9 +16,18 @@ const goalSchema = new mongoose.Schema({
 const accomplishmentSchema = new mongoose.Schema({
   accomplishmentName: {
     type: String,
-    required: true
+    'default': "Coming Soon"
   },
   accomplishmentDescription: String
+});
+
+const feedbackSchema = new mongoose.Schema({
+  author: String,
+  feedbackText: String,
+  createdOn: {
+    type: Date,
+    'default': Date.now
+  }
 });
 
 const employeeSchema = new mongoose.Schema({
@@ -40,7 +49,8 @@ const employeeSchema = new mongoose.Schema({
   },
   biography: String,
   goals: [goalSchema],
-  accomplishments: [accomplishmentSchema]
+  accomplishments: [accomplishmentSchema],
+  feedback: [feedbackSchema]
 });
 
 mongoose.model('Employee', employeeSchema, 'Employees');
