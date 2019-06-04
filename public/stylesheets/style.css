@@ -1,18 +1,45 @@
 @import url("//fonts.googleapis.com/css?family=Monoton");
+@import url("//fonts.googleapis.com/css?family=Russo+One&display=swap");
 
 body {
   font-family: "Cabin", Arial, sans-serif;
   color: #ffffff;
   background-color: #1F2833;
+  padding-top: 4.5rem;
+  position: relative;
+  min-height: 100%;
+  overflow: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #0B0C10;
+  height: inherit;
+  padding-top: 1rem;
+}
+
+h1 {
   font-family: 'Monoton', cursive;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'Russo One', sans-serif;
+}
+
+h3 {
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: .5rem;
+    padding-bottom: 0;
 }
 
 .navbar {
   background-color: #0B0C10;
   border-color: #66FCF1;
+  margin-bottom: 4rem;
 }
 
 .navbar-brand {
@@ -21,7 +48,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .banner {
-  margin-top: 6em;
   border-bottom: 1px solid #45A29E;
   margin-bottom: 1.5em;
   padding-bottom: 0.5em;
@@ -33,25 +59,47 @@ h1 small {
 
 .card {
   background-color: #45A29E;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: .5em;
+  margin-bottom: .5rem;
+
+}
+
+.card-inner {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-color: black;
+  border-style: double;
+  padding: .5em;
+  margin-bottom: .5rem;
+  border-radius: 5px;
+}
+
+.card-header {
+  background-color: #0B0C10;
+  padding: .5rem;
+  padding-bottom: 0
+
+}
+
+.row.no-gutters {
+}
+
+.col-6.col-md-6.custom-right {
+  padding-right: .25rem;
+}
+
+.col-6.col-md-6.custom-left {
+  padding-left: .25rem;
+}
+
+
+.card-body h3 {
+  color: black;
 }
 
 .card-primary {
   border-color: #a2ced3;
   margin-bottom: 1rem;
-}
-
-.review-header {
-  background-color: #31727a;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-.review {
-  margin-right: -20px;
-  margin-left: -20px;
-  margin-bottom: 1em;
 }
 
 .badge-default, .btn-primary {
@@ -74,14 +122,65 @@ h4 small {
 }
 .accomplishments span.badge {
   margin-right:4px;
+  margin-bottom: 4px;
 }
 
-footer {
-  margin-top:2rem;
-  padding: 2rem;
-  background-color: #0B0C10;
+.form-group {
+  margin: 0;
+}
+
+label.control-label {
+  margin: 0;
+}
+
+input.form-control {
+  background-color: #1F2833;
+}
+
+textarea.form-control {
+  background-color: #1F2833;
 }
 
 legend {
   font-family: 'Monoton', cursive;
+}
+
+.accomplishments {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.accomplishment {
+  font-size: 90%;
+  border-radius: 5px;
+  display: block;
+  background-color: black;
+  margin-right: .5rem;
+  margin-top: .5rem;
+  padding: .5rem;
+}
+.accomplishment label {
+  margin-right: .5rem;
+}
+
+button.btn.btn-primary {
+  margin-top: 1rem;
+}
+
+.col-12.col-md-4.custom {
+  top: 5rem;
+  position: absolute;
+  float: right;
+  right: 0;
+}
+
+.progress {
+  background-color: #1F2833;
+  padding-bottom: .5rem;
+}
+
+.alert {
+  margin: .25rem;
 }

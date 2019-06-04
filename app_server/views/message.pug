@@ -1,0 +1,6 @@
+.messages 
+  each type in Object.keys(locals.messages) 
+    each message in messages[type] 
+      .alert.alert-success.alert-dismissible
+        a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+        | #{message}

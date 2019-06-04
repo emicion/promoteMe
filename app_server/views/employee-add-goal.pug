@@ -1,0 +1,17 @@
+extends layout
+block content
+  .row.banner
+    .col-12
+      h1 Post A New Goal
+  .row
+    .col-12.col-md-8
+      .card
+        .card-body
+          form.form-horizontal(action=`/employees/${employee._id}/goals/add` method="POST")
+            .form-group
+              label.control-label(for="name") Goal Name
+              input.form-control(type="text" name="name")
+            .form-group
+              label.control-label(for="description") Goal Description
+              textarea.form-control(name="description")
+            button.btn.btn-primary.col-10(type='submit') Submit

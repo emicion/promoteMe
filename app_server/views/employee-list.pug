@@ -10,15 +10,16 @@ block content
         .card
           .card-body
             h3 
-              a(href="/employee")= employee.name
+              a(href=`/employees/${employee._id}`)= employee.firstName + " " + employee.lastName
             span
-              | <strong>Position:</strong> #{employee.position} <br>
+              | <strong>Position: </strong> #{employee.position} <br>
               
-              | <strong>Years Served:</strong> #{employee.years}
+              | <strong>Hire Date: </strong> #{employee.hireDate.toDateString()}
             .accomplishments
               each accomplishment in employee.accomplishments
                 span.badge.badge-pill= accomplishment
                 
     .col-12.col-md-4
-      p.lead &#129409 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis varius quam quisque id diam. Sed blandit libero volutpat sed cras ornare arcu dui. Amet mattis vulputate enim nulla aliquet porttitor lacus. Tellus id interdum velit laoreet id donec ultrices tincidunt arcu. Pellentesque dignissim enim sit amet venenatis urna. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Porttitor lacus luctus accumsan tortor posuere ac ut consequat semper. Odio morbi quis commodo odio aenean sed adipiscing. Ultricies lacus sed turpis tincidunt. Eu mi bibendum neque egestas congue quisque egestas diam.
+      p.lead &#129409 "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it."
+      span -Steve Jobs
     

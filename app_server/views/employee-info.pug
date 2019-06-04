@@ -2,16 +2,16 @@ extends layout
 block content
   .row.banner
     .col-12
-      h1 Employee Name
+      h1 #{employee.firstName} #{employee.lastName}
   .row
     .col-12.col-md-8
         .card
           .card-body
             h3 Bio
             span
-              | <strong>Position:</strong> Employee Position <br>
+              | <strong>Position:</strong> #{employee.position} <br>
               
-              | <strong>Years Served:</strong> Employee Years <br><br>
+              | <strong>Hire Date:</strong> #{employee.hireDate.toDateString()} <br><br>
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Velit laoreet id donec ultrices tincidunt arcu non. Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget. Lorem sed risus ultricies tristique nulla aliquet. Vitae congue mauris rhoncus aenean vel elit scelerisque mauris. Sed felis eget velit aliquet sagittis id consectetur purus. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Tellus cras adipiscing enim eu. Dignissim suspendisse in est ante in nibh mauris cursus. Quam nulla porttitor massa id neque aliquam vestibulum. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec.
 
             |Aliquam etiam erat velit scelerisque in dictum. Congue quisque egestas diam in arcu cursus euismod. Mi in nulla posuere sollicitudin aliquam. Feugiat scelerisque varius morbi enim nunc faucibus. Amet purus gravida quis blandit. Scelerisque purus semper eget duis. Mi bibendum neque egestas congue quisque egestas diam in. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget. Malesuada pellentesque elit eget gravida cum sociis. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Adipiscing enim eu turpis egestas pretium. Fermentum leo vel orci porta non. Viverra tellus in hac habitasse platea dictumst. Egestas fringilla phasellus faucibus scelerisque eleifend donec. <br><br>
@@ -19,23 +19,34 @@ block content
           .card-body
             h3 Accomplishments
             .accomplishments
-              span.badge.badge-pill Worker
-              span.badge.badge-pill Worker
-              span.badge.badge-pill Worker
-              span.badge.badge-pill Worker
-              span.badge.badge-pill Worker
-              span.badge.badge-pill Worker
-              span.badge.badge-pill Worker
-              span.badge.badge-pill Worker
+              each accomplishment in employee.accomplishments
+                span.badge.badge-pill= accomplishment
             .progress
               .progress-bar(role='progressbar', style='width: 15%', aria-valuenow='15', aria-valuemin='0', aria-valuemax='100')
               .progress-bar.bg-success(role='progressbar', style='width: 30%', aria-valuenow='30', aria-valuemin='0', aria-valuemax='100')
               .progress-bar.bg-info(role='progressbar', style='width: 20%', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+        .card
+          .card-body
+            h3
+              a(href=`/employees/${employee._id}/feedback`) Feedback
+            each feedback in employee.feedback
+              .card-inner
+                .card-header
+                  span &#129408 #{feedback.author}
+                .card-body
+                  .feedback
+                    p #{feedback.comment}        
     .col-12.col-md-4
-      p.lead &#129409 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis varius quam quisque id diam. Sed blandit libero volutpat sed cras ornare arcu dui. Amet mattis vulputate enim nulla aliquet porttitor lacus. Tellus id interdum velit laoreet id donec ultrices tincidunt arcu. 
+      p.lead &#129409 "To be a champion, I think you have to see the big picture. It's not about winning and losing; it's about every day hard work and about thriving on a challenge. It's about embracing the pain that you'll experience at the end of a race and not being afraid. I think people think too hard and get afraid of a certain challenge."
+      span -Summer Sanders<br><br>
       .card
         .card-body
-          h4 Goals
+          h3 Compliments
+          p "Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget."
+      .card
+        .card-body
+          h3 
+            a(href=`/employees/${employee._id}/goals`) Goals
           .progress
             .progress-bar.progress-bar-striped.bg-primary(role='progressbar', style='width: 12%', aria-valuenow='12', aria-valuemin='0', aria-valuemax='100') Goal 1
           .progress
@@ -52,3 +63,29 @@ block content
             .progress-bar.progress-bar-striped.bg-light(role='progressbar', style='width: 88%', aria-valuenow='88', aria-valuemin='0', aria-valuemax='100') Goal 7
           .progress
             .progress-bar.progress-bar-striped.bg-dark(role='progressbar', style='width: 100%', aria-valuenow='100', aria-valuemin='0', aria-valuemax='100') Goal 8
+      .row.no-gutters
+        .col-6.col-md-6.custom-right
+          .card
+            .card-body
+              p content
+        .col-6.col-md-6.custom-left
+          .card
+            .card-body
+              p content
+        .col-6.col-md-6.custom-right
+          .card
+            .card-body
+              p content
+        .col-6.col-md-6.custom-left
+          .card
+            .card-body
+              p content
+        .col-6.col-md-6.custom-right
+          .card
+            .card-body
+              p content
+        .col-6.col-md-6.custom-left
+          .card
+            .card-body
+              p content
+      

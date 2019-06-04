@@ -1,0 +1,22 @@
+extends layout
+block content
+  row.banner
+    h1= pageHeader.title
+      small &nbsp; #{pageHeader.strapline}
+  .row
+    .col-12
+      .card
+        .card-body
+          form.form-horizontal(action="/login" method="GET")
+            .form-group
+              label.control-label.col-sm-4(for="username") Username 
+              .col-sm-10
+                input.form-control(type="text" name="username")
+            .form-group
+              label.control-label.col-sm-4(for="password") Password 
+              .col-sm-10
+                input.form-control(type="text" name="password")
+            .col-12
+              button.btn.btn-primary.col-5(href='/') Login
+              button.btn.btn-primary.col-5(type='submit') Register
+                  
