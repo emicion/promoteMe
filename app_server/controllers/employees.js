@@ -4,7 +4,6 @@ const Employee = mongoose.model('Employee');
 const employeeList = async (req, res) => {
   const employees = await Employee.find();
   console.log(employees);
-
   res.render('employee-list', {
     title: 'Employee Feed',
     pageHeader: {
@@ -15,14 +14,21 @@ const employeeList = async (req, res) => {
   });
 };
 
-const employeeGet = async (req, res) => {
+const employeeEdit = async (req, res) => {
   const employee = await Employee.findOne({ _id: req.params.id });
 
-  res.render('employee-info', { title: 'My Profile', employee} )
+  res.render('employee-edit', {
+    title: 'Edit Profile',
+    pageHeader: {
+      title: 'Edit Profile',
+      strapline: 'Achieve your goals'
+    },
+    employee
+  });
 };
 
-const employeeEdit = (req, res) => {
-  res.render('employee-edit', {
+const employeeAdd = (req, res) => {
+  res.render('employee-add', {
     title: 'Sign-Up',
     pageHeader: {
       title: 'Sign-Up',
@@ -65,15 +71,16 @@ const employeePostGoal = async (req, res) => {
   res.redirect('/');
 };
 
-const employeeInfo = (req, res) => {
+const employeeInfo = async (req, res) => {
+  const employee = await Employee.findOne({ _id: req.params.id });
   res.render('employee-info', { title: 'Employee Information', employee} );
 };
 
 
 module.exports = {
   employeeList,
-  employeeGet,
   employeeEdit,
+  employeeAdd,
   employeeCreate,
   employeeAddFeedback,
   employeePostFeedback,
