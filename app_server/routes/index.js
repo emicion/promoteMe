@@ -10,13 +10,13 @@ router.get('/add', ctrlEmployees.employeeAdd);
 router.get('/employees/:id/feedback', ctrlEmployees.employeeAddFeedback);
 router.get('/employees/:id/goals', ctrlEmployees.employeeGoals);
 router.get('/employees/:id/goals/add', ctrlEmployees.employeeAddGoal);
-
-
-
 router.get('/employees/:id', ctrlEmployees.employeeInfo);
 
 /* POST Employee page */
 router.post('/add', ctrlEmployees.employeeCreate);
+
+/* POST update Employee page */
+router.post('/employees/:id/edit', ctrlEmployees.employeeUpdate);
 
 /*POST Employee feedback */
 router.post('/employees/:id/feedback', ctrlEmployees.employeePostFeedback);

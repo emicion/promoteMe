@@ -16,15 +16,20 @@ const employeeList = async (req, res) => {
 
 const employeeEdit = async (req, res) => {
   const employee = await Employee.findOne({ _id: req.params.id });
-
+  var employeeHireDate = employee.hireDate.toISOString().substring(0,10);
   res.render('employee-edit', {
     title: 'Edit Profile',
     pageHeader: {
       title: 'Edit Profile',
-      strapline: 'Achieve your goals'
+      strapline: 'Achieve your goals!'
     },
-    employee
+    employee, employeeHireDate
   });
+};
+
+const employeeUpdate = async (req, res) => {
+  const employee = await Employee.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true, runValidators: true});
+  res.redirect(`/employees/${employee._id}`);
 };
 
 const employeeAdd = (req, res) => {
@@ -81,6 +86,7 @@ module.exports = {
   employeeList,
   employeeEdit,
   employeeAdd,
+  employeeUpdate,
   employeeCreate,
   employeeAddFeedback,
   employeePostFeedback,
