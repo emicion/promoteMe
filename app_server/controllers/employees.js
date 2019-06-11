@@ -29,6 +29,7 @@ const employeeEdit = async (req, res) => {
 
 const employeeUpdate = async (req, res) => {
   const employee = await Employee.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true, runValidators: true});
+  req.flash('success', 'Succesfully Updated Employee Profile!');
   res.redirect(`/employees/${employee._id}`);
 };
 
@@ -57,7 +58,7 @@ const employeeAddFeedback = async (req, res) => {
 const employeePostFeedback = async (req, res) => {
   await Employee.update( {_id: req.params.id}, {$push: {feedback: req.body} });
   req.flash('success', 'Succesfully Posted Employee Feedback!');
-  res.redirect('/');
+  res.redirect(`/employees/${req.params.id}`);
 };
 
 const employeeGoals = async (req, res) => {

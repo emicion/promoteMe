@@ -1,5 +1,6 @@
 extends layout
 block content
+  
   .row.banner
     .col-12
       h1 #{employee.firstName} #{employee.lastName}
@@ -22,9 +23,10 @@ block content
               each accomplishment in employee.accomplishments
                 span.badge.badge-pill= accomplishment
             .progress
-              .progress-bar(role='progressbar', style='width: 15%', aria-valuenow='15', aria-valuemin='0', aria-valuemax='100')
-              .progress-bar.bg-success(role='progressbar', style='width: 30%', aria-valuenow='30', aria-valuemin='0', aria-valuemax='100')
-              .progress-bar.bg-info(role='progressbar', style='width: 20%', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+              .progress-bar(role='progressbar', style='width: 50%', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100') Customer Service
+              .progress-bar.bg-success(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Production
+              .progress-bar.bg-info(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Knowledge
+              .progress-bar.bg-warning(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Knowledge
         .card
           .card-body
             h3
@@ -41,51 +43,42 @@ block content
       span -Summer Sanders<br><br>
       .card
         .card-body
-          h3 Compliments
-          p "Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget."
-      .card
-        .card-body
           h3 
             a(href=`/employees/${employee._id}/goals`) Goals
-          .progress
-            .progress-bar.progress-bar-striped.bg-primary(role='progressbar', style='width: 12%', aria-valuenow='12', aria-valuemin='0', aria-valuemax='100') Goal 1
-          .progress
-            .progress-bar.progress-bar-striped.bg-secondary(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Goal 2
-          .progress
-            .progress-bar.progress-bar-striped.bg-success(role='progressbar', style='width: 38%', aria-valuenow='28', aria-valuemin='0', aria-valuemax='100') Goal 3
-          .progress
-            .progress-bar.progress-bar-striped.bg-info(role='progressbar', style='width: 50%', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100') Goal 4
-          .progress
-            .progress-bar.progress-bar-striped.bg-warning(role='progressbar', style='width: 62%', aria-valuenow='62', aria-valuemin='0', aria-valuemax='100') Goal 5
-          .progress
-            .progress-bar.progress-bar-striped.bg-danger(role='progressbar', style='width: 75%', aria-valuenow='75', aria-valuemin='0', aria-valuemax='100') Goal 6
-          .progress
-            .progress-bar.progress-bar-striped.bg-light(role='progressbar', style='width: 88%', aria-valuenow='88', aria-valuemin='0', aria-valuemax='100') Goal 7
-          .progress
-            .progress-bar.progress-bar-striped.bg-dark(role='progressbar', style='width: 100%', aria-valuenow='100', aria-valuemin='0', aria-valuemax='100') Goal 8
+          each goal in employee.goals
+            - var styleWidth = "width:" + goal.progress.toString() + "%";
+            - var progressNumber = goal.progress.toString();
+            .row
+              .col-12
+                .progress
+                  .progress-bar.progress-bar-striped.progress-bar-animated.bg-primary(role='progressbar', style=styleWidth, aria-valuenow=progressNumber, aria-valuemin='0', aria-valuemax='100') #{goal.name}
+      .card
+        .card-body
+          h3 Compliments
+          p "Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget."
       .row.no-gutters
         .col-6.col-md-6.custom-right
           .card
             .card-body
-              p content
+              <img src="/images/ribeye.jpg" alt="Mountain" style="width: 100%">
         .col-6.col-md-6.custom-left
           .card
             .card-body
-              p content
+              <img src="/images/ribeye.jpg" alt="Mountain" style="width: 100%">
         .col-6.col-md-6.custom-right
           .card
             .card-body
-              p content
+              <img src="/images/ribeye.jpg" alt="Mountain" style="width: 100%">
         .col-6.col-md-6.custom-left
           .card
             .card-body
-              p content
+              <img src="/images/ribeye.jpg" alt="Mountain" style="width: 100%">
         .col-6.col-md-6.custom-right
           .card
             .card-body
-              p content
+              <img src="/images/ribeye.jpg" alt="Mountain" style="width: 100%">
         .col-6.col-md-6.custom-left
           .card
             .card-body
-              p content
+              <img src="/images/ribeye.jpg" alt="Mountain" style="width: 100%">
       

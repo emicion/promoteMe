@@ -43,3 +43,4 @@ process.on('SIGTERM', () => {
 });
 
 require('./employees');
+require('./managers');

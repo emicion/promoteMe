@@ -8,7 +8,7 @@ block content
     .col-12.col-md-8
       .card
         .card-body
-          form.form-horizontal(action="/add" method="POST")
+          form.form-horizontal(action="/manager-add" method="POST")
             .form-group
               label.control-label.col-sm-4(for="firstName") First Name 
               .col-sm-10
@@ -29,18 +29,18 @@ block content
               label.control-label.col-sm-4(for="hireDate") Hire Date 
               .col-sm-10
                 input.form-control(type="date" name="hireDate")
-            .form-group
-              label.control-label.col-sm-4(for="biography") Bio 
-              .col-sm-10
-                textarea.form-control(name="biography")
-            - const choices = ['Food-Handler-Card', 'Meat-Cutter', 'Gourmet-Expert', 'Safetey-Expert', 'Licensed', 'Meal-Expert']
-            .form-check
-              .col-11
-                ul.accomplishments
-                    each choice in choices
-                      .accomplishment
-                        label(for=choice) #{choice}
-                        input(type="checkbox" id=choice value=choice name="accomplishments")
+            //- .form-group
+            //-   label.control-label.col-sm-4(for="biography") Bio 
+            //-   .col-sm-10
+            //-     textarea.form-control(name="biography")
+            //- - const choices = ['Food-Handler-Card', 'Meat-Cutter', 'Gourmet-Expert', 'Safetey-Expert', 'Licensed', 'Meal-Expert']
+            //- .form-check
+            //-   .col-11
+            //-     ul.accomplishments
+            //-         each choice in choices
+            //-           .accomplishment
+            //-             label(for=choice) #{choice}
+            //-             input(type="checkbox" id=choice value=choice name="accomplishments")
             .col-12
               button.btn.btn-primary.col-10(type='submit') Register
     .col-12.col-md-4
