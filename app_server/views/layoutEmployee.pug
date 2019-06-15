@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar.fixed-top.navbar-toggleable-lg.navbar-inverse
+      .container
+        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarMain')
+          span.navbar-toggler-icon
+        a.navbar-brand(href=`/employees/${employee._id}`) promoteMe
+        #navbarMain.navbar-collapse.collapse
+          ul.navbar-nav.ml-lg-auto
+            li.nav-item
+              a.nav-link(href=`/employees/${employee._id}`) My Profile
+            li.nav-item
+              a.nav-link(href=`/employees/${employee._id}/goals`) Goals
+            li.nav-item
+              a.nav-link(href=`/employees/${employee._id}/edit`) Edit
+            li.nav-item
+              a.nav-link(href='/logout') Logout
+    .container
+      != messages('message', locals)
+      block content
+    //- footer
+    //-   .container.text-center
+    //-       .row
+    //-         .col-12.col-md-4
+    //-           h5 Footer Content
+    //-           p Here you can use rows and columns to organize content
+    //-         .col-12.col-md-4
+    //-           h5 Links
+    //-           ul.list-unstyled
+    //-             li
+    //-               a(href='#!') Link 1
+    //-             li
+    //-               a(href='#!') Link 2
+    //-         .col-12.col-md-4
+    //-           h5 Links
+    //-           ul.list-unstyled
+    //-             li
+    //-               a(href='#!') Link 3
+    //-             li
+    //-               a(href='#!') Link 4
+    //-       //- .row
+          //-   .col-12.col-md-4-center-text
+          //-     p Copyright © Christopher Andrew Calderon      
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js')
+    script(src='/javascripts/bootstrap.min.js')

@@ -1,0 +1,85 @@
+extends layoutManager
+block content
+  
+  .row.banner
+    .col-12
+      h1 #{employee.firstName} #{employee.lastName}
+  .row
+    .col-12.col-md-8
+        .card
+          .card-body
+            h3 Bio
+            span
+              | <strong>Position:</strong> #{employee.position} <br>
+              
+              | <strong>Hire Date:</strong> #{employee.hireDate.toDateString()} <br><br>
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Velit laoreet id donec ultrices tincidunt arcu non. Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget. Lorem sed risus ultricies tristique nulla aliquet. Vitae congue mauris rhoncus aenean vel elit scelerisque mauris. Sed felis eget velit aliquet sagittis id consectetur purus. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Tellus cras adipiscing enim eu. Dignissim suspendisse in est ante in nibh mauris cursus. Quam nulla porttitor massa id neque aliquam vestibulum. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec.
+
+            |Aliquam etiam erat velit scelerisque in dictum. Congue quisque egestas diam in arcu cursus euismod. Mi in nulla posuere sollicitudin aliquam. Feugiat scelerisque varius morbi enim nunc faucibus. Amet purus gravida quis blandit. Scelerisque purus semper eget duis. Mi bibendum neque egestas congue quisque egestas diam in. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget. Malesuada pellentesque elit eget gravida cum sociis. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Adipiscing enim eu turpis egestas pretium. Fermentum leo vel orci porta non. Viverra tellus in hac habitasse platea dictumst. Egestas fringilla phasellus faucibus scelerisque eleifend donec. <br><br>
+        .card
+          .card-body
+            h3 Accomplishments
+            .accomplishments
+              each accomplishment in employee.accomplishments
+                span.badge.badge-pill= accomplishment
+            .progress
+              .progress-bar(role='progressbar', style='width: 50%', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100') Customer Service
+              .progress-bar.bg-success(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Production
+              .progress-bar.bg-info(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Knowledge
+              .progress-bar.bg-warning(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Knowledge
+        .card
+          .card-body
+            h3
+              a(href=`/managers/employees/${employee._id}/feedback`) Feedback
+                span.h5 🖊️
+            each feedback in employee.feedback
+              .card-inner
+                .card-header
+                  span &#129408 #{feedback.author}
+                .card-body
+                  .feedback
+                    p #{feedback.comment}        
+    .col-12.col-md-4
+      p.lead &#129409 "To be a champion, I think you have to see the big picture. It's not about winning and losing; it's about every day hard work and about thriving on a challenge. It's about embracing the pain that you'll experience at the end of a race and not being afraid. I think people think too hard and get afraid of a certain challenge."
+      span -Summer Sanders<br><br>
+      .card
+        .card-body
+          h3 
+            a(href=`/managers/employees/${employee._id}/goals`) Goals
+          each goal in employee.goals
+            - var styleWidth = "width:" + goal.progress.toString() + "%";
+            - var progressNumber = goal.progress.toString();
+            .row
+              .col-12
+                .progress
+                  .progress-bar.progress-bar-striped.progress-bar-animated.bg-primary(role='progressbar', style=styleWidth, aria-valuenow=progressNumber, aria-valuemin='0', aria-valuemax='100') #{goal.name}
+      .card
+        .card-body
+          h3 Compliments
+          p "Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget."
+      .row.no-gutters
+        .col-6.col-md-6.custom-right
+          .card
+            .card-body
+              <img src="/images/cut_001.jpg" alt="Mountain" style="width: 100%">
+        .col-6.col-md-6.custom-left
+          .card
+            .card-body
+              <img src="/images/cut_002.jpg" alt="Mountain" style="width: 100%">
+        .col-6.col-md-6.custom-right
+          .card
+            .card-body
+              <img src="/images/cut_003.jpg" alt="Mountain" style="width: 100%">
+        .col-6.col-md-6.custom-left
+          .card
+            .card-body
+              <img src="/images/cut_004.jpg" alt="Mountain" style="width: 100%">
+        .col-6.col-md-6.custom-right
+          .card
+            .card-body
+              <img src="/images/cut_005.jpg" alt="Mountain" style="width: 100%">
+        .col-6.col-md-6.custom-left
+          .card
+            .card-body
+              <img src="/images/cut_006.jpg" alt="Mountain" style="width: 100%">
+  

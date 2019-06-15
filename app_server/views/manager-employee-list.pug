@@ -1,4 +1,4 @@
-extends layout
+extends layoutManager
 block content
   .row.banner
     .col-12
@@ -10,7 +10,7 @@ block content
         .card
           .card-body
             h3 
-              a(href=`/employees/${employee._id}`)= employee.firstName + " " + employee.lastName
+              a(href=`employees/${employee._id}`)= employee.firstName + " " + employee.lastName
             span
               | <strong>Position: </strong> #{employee.position} <br>
               

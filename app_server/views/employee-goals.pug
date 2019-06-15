@@ -1,4 +1,4 @@
-extends layout
+extends layoutEmployee
 block content
   .row.banner
     .col-12
@@ -7,14 +7,20 @@ block content
     .col-12.col-md-8
       .card
         .card-body
-          h3 My Goals
+          h3 Goal Progress
           each goal in employee.goals
             - var styleWidth = "width:" + goal.progress.toString() + "%";
             - var progressNumber = goal.progress.toString();
             .row
-              label.col-3(for="goalProgress") 🔥 #{goal.name}
+              label.col-3(for="goalProgress") 🔥 <strong>#{goal.name}</strong>
               .progress.col-9
                 .progress-bar.progress-bar-striped.progress-bar-animated.bg-primary(role='progressbar', style=styleWidth, aria-valuenow=progressNumber, aria-valuemin='0', aria-valuemax='100') #{goal.progress}
+      .card
+        .card-body
+          h3 Goal Descriptions
+          each goal in employee.goals
+            .row
+              label.col-12(for="goalDescription") <strong>#{goal.name}:</strong> #{goal.description}
       .card
         .card-body
           h3 Set A New Goal!
@@ -49,6 +55,7 @@ block content
           form.form-horizontal
             .form-group
               each accomplishedGoal in employee.goals
+                if accomplishedGoal.progress === 100
                   h6 ☑️ #{accomplishedGoal.name}
             
     

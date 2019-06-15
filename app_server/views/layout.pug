@@ -11,17 +11,15 @@ html
       .container
         button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarMain')
           span.navbar-toggler-icon
-        a.navbar-brand(href='/ ') promoteMe
+        a.navbar-brand(href='/login') promoteMe
         #navbarMain.navbar-collapse.collapse
-          ul.navbar-nav.mr-auto
+          ul.navbar-nav.ml-auto
             li.nav-item
-              a.nav-link(href='/about/') Home
+              a.nav-link(href='/about/') About
             li.nav-item
-              a.nav-link(href='/about/') Goals
+              a.nav-link(href='/add') Sign Up
             li.nav-item
-              a.nav-link(href='/about/') Feedback   
-            li.nav-item
-              a.nav-link(href='/about/') About 
+              a.nav-link(href='/login') Login
     .container
       != messages('message', locals)
       block content

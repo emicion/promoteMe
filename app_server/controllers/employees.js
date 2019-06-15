@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
+const User = mongoose.model('User');
 
 const employeeList = async (req, res) => {
   const employees = await Employee.find();
@@ -43,11 +44,37 @@ const employeeAdd = (req, res) => {
   });
 };
 
-const employeeCreate = async (req, res) => {
-  const employee = new Employee(req.body);
+// const employeeCreate = async (req, res) => {
+//   const employee = new Employee(req.body);
+//   await employee.save();
+//   req.flash('success', 'Succesfully Created Profile!');
+//   res.redirect('/');
+// };
+
+const employeeCreate = async (req, res, next) => {
+  const employee = new Employee({
+    // email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    position:req.body.position,
+    storeNumber: req.body.storeNumber,
+    hireDate: req.body.hireDate,
+    biography: req.body.biography,
+    accomplishments: req.body.accomplishments
+  });
   await employee.save();
-  req.flash('success', 'Succesfully Created Profile!');
-  res.redirect('/');
+
+  const user = new User({
+    email: req.body.email,
+    isManager: false,
+    id: employee._id
+  });
+  await user.setPassword(req.body.password);
+  await user.save();
+
+  const { thisUser } = await User.authenticate()('user', 'password');
+  // res.redirect('/employees/' + employee._id);
+  next();
 };
 
 const employeeAddFeedback = async (req, res) => {
@@ -74,7 +101,7 @@ const employeeAddGoal = async (req, res) => {
 const employeePostGoal = async (req, res) => {
   await Employee.update( {_id: req.params.id}, {$push: {goals: req.body} });
   req.flash('success', 'Succesfully Posted A New Goal!');
-  res.redirect('/');
+  res.redirect(`/employees/${req.params.id}/goals`);
 };
 
 const employeeInfo = async (req, res) => {

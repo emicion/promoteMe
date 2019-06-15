@@ -10,6 +10,18 @@ block content
         .card-body
           form.form-horizontal(action="/manager-add" method="POST")
             .form-group
+              label.control-label.col-sm-4(for="email") Email
+              .col-sm-10
+                input.form-control(type="email" name="email" required)
+            .form-group
+              label.control-label.col-sm-4(for="password") Password
+              .col-sm-10
+                input.form-control(type="password" name="password" required)
+            .form-group
+              label.control-label.col-sm-4(for="password-confirm") Confirm Password
+              .col-sm-10
+                input.form-control(type="password" name="password-confirm" required)
+            .form-group
               label.control-label.col-sm-4(for="firstName") First Name 
               .col-sm-10
                 input.form-control(type="text" name="firstName")

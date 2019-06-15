@@ -1,10 +1,19 @@
 const mongoose = require('mongoose');
+const md5 = require('md5');
+// const passportLocalMongoose = require('passport-local-mongoose');
 const slug = require('slugs');
 
 const managerSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    unique: true,
+    lowercase: true,
+    trim: true,
+    required: true
+  },
   firstName: {
     type: String,
-    required: 'Please enter a first name!'
+    required: true
   },
   lastName: {
     type: String,
@@ -22,6 +31,10 @@ const managerSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  // isManager: {
+  //   type: Boolean,
+  //   'default': true
+  // },
   slug: String
 });
 
@@ -34,4 +47,6 @@ managerSchema.pre('save', function(next) {
   next();
 });
 
+
+// managerSchema.plugin(passportLocalMongoose, {usernameField: 'email'});
 mongoose.model('Manager', managerSchema, 'Managers');

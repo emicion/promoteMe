@@ -3,10 +3,13 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var expressValidator = require('express-validator');
 var express = require('express');
+var passport = require('passport');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var {promisify} = require('es6-promisify');
 require('./app_server/models/db');
+require('./app_server/handlers/passport');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
@@ -29,6 +32,10 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
+
+// // Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
