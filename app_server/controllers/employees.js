@@ -29,7 +29,13 @@ const employeeEdit = async (req, res) => {
 };
 
 const employeeUpdate = async (req, res) => {
-  const employee = await Employee.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true, runValidators: true});
+  const employee = await Employee.findOneAndUpdate({ _id: req.params.id },
+    {firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    position: req.body.position,
+    hireDate: req.body.hireDate,
+    biography: req.body.biography},
+    {new: true, runValidators: true});
   req.flash('success', 'Succesfully Updated Employee Profile!');
   res.redirect(`/employees/${employee._id}`);
 };
@@ -44,16 +50,8 @@ const employeeAdd = (req, res) => {
   });
 };
 
-// const employeeCreate = async (req, res) => {
-//   const employee = new Employee(req.body);
-//   await employee.save();
-//   req.flash('success', 'Succesfully Created Profile!');
-//   res.redirect('/');
-// };
-
 const employeeCreate = async (req, res, next) => {
   const employee = new Employee({
-    // email: req.body.email,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     position:req.body.position,
@@ -73,7 +71,6 @@ const employeeCreate = async (req, res, next) => {
   await user.save();
 
   const { thisUser } = await User.authenticate()('user', 'password');
-  // res.redirect('/employees/' + employee._id);
   next();
 };
 

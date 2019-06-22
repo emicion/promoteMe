@@ -19,12 +19,11 @@ block content
             h3 Accomplishments
             .accomplishments
               each accomplishment in employee.accomplishments
-                span.badge.badge-pill= accomplishment
+                span.badge.badge-pill(data-title=accomplishment)= accomplishment
             .progress
               .progress-bar(role='progressbar', style='width: 50%', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100') Customer Service
               .progress-bar.bg-success(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Production
               .progress-bar.bg-info(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Knowledge
-              .progress-bar.bg-warning(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Knowledge
         .card
           .card-body
             h3 Feedback
@@ -52,7 +51,7 @@ block content
       .card
         .card-body
           h3 Compliments
-          p "Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget."
+          p "#{employee.firstName} is always extemely so helpful when I come in to shop. #{employee.firstName}'s excellent customer service is what keeps me coming back!"
       .row.no-gutters
         .col-6.col-md-6.custom-right
           .card

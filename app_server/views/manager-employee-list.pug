@@ -14,11 +14,12 @@ block content
             span
               | <strong>Position: </strong> #{employee.position} <br>
               
-              | <strong>Hire Date: </strong> #{employee.hireDate.toDateString()}
+              | <strong>Store Number: </strong> #{employee.storeNumber}<br>
+              
+              | <strong>Hire Date: </strong> #{employee.hireDate.toDateString()}      
             .accomplishments
               each accomplishment in employee.accomplishments
-                span.badge.badge-pill= accomplishment
-                
+                span.badge.badge-pill= accomplishment              
     .col-12.col-md-4
       p.lead &#129409 "Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it."
       span -Steve Jobs

@@ -58,6 +58,11 @@ h1 small {
   color: #aaa;
 }
 
+button.btn.btn-danger.col-3.offset-3 {
+  margin-left: 24%;
+  margin-top: .5rem;
+}
+
 .card {
   background-color: #45A29E;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -120,6 +125,8 @@ h4 small {
 
 .badge.badge-pill {
   background-color: #1F2833;
+  font-size: 14px;
+  font-weight: lighter;
 }
 .accomplishments span.badge {
   margin-right:4px;
@@ -136,6 +143,7 @@ label.control-label {
 
 input.form-control {
   background-color: #1F2833;
+  color: grey;
 }
 
 textarea.form-control {
@@ -225,4 +233,35 @@ button.btn.btn-primary {
 
 .alert {
   margin: .25rem;
+}
+
+[data-title] {
+
+  position: relative;
+  cursor: help;
+}
+
+[data-title]:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: -26px;
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: #428bca;
+  color: #fff;
+  font-size: 12px;
+  font-family: sans-serif;
+  white-space: nowrap;
+}
+
+[data-title]:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 8px;
+  display: inline-block;
+  color: #fff;
+  border: 8px solid transparent;
+  border-bottom: 8px solid #000;
 }

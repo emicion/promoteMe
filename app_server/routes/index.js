@@ -6,7 +6,7 @@ const ctrlAuth = require('../controllers/auth');
 const ctrlOthers = require('../controllers/others');
 
 /* GET Employee pages */
-router.get('/', ctrlEmployees.employeeList);
+router.get('/', ctrlAuth.isLoggedIn, ctrlAuth.bounce);
 router.get('/employees/:id/edit', ctrlAuth.isLoggedIn, ctrlEmployees.employeeEdit);
 router.get('/add', ctrlEmployees.employeeAdd);
 router.get('/employees/:id/feedback', ctrlEmployees.employeeAddFeedback);
@@ -22,39 +22,24 @@ router.get('/managers/employees/:id', ctrlAuth.isLoggedIn, ctrlManagers.managerV
 router.get('/managers/employees/:id/goals', ctrlAuth.isLoggedIn, ctrlManagers.managerViewEmployeeGoals);
 router.get('/managers/employees/:id/feedback', ctrlManagers.managerEmployeeFeedback);
 
-/* POST Employee page */
+/* POST Employee pages */
 router.post('/add', ctrlEmployees.employeeCreate, ctrlAuth.login);
-
-/* POST Manager page */
-router.post('/manager-add', ctrlManagers.managerCreate, ctrlAuth.login);
-
-/* POST update Employee page */
 router.post('/employees/:id/edit', ctrlEmployees.employeeUpdate);
-
-/* POST update Manager page */
-router.post('/managers/:id/edit', ctrlManagers.managerUpdate);
-
-/*POST Employee feedback */
-router.post('/employees/:id/feedback', ctrlEmployees.employeePostFeedback);
-
-/*POST Employee feedback */
-router.post('/managers/employees/:id/feedback', ctrlManagers.managerPostFeedback);
-
-/* POST Goal */
 router.post('/employees/:id/goals/add', ctrlEmployees.employeePostGoal);
 
+/* POST Manager pages */
+router.post('/manager-add', ctrlManagers.managerCreate, ctrlAuth.login);
+router.post('/managers/:id/edit', ctrlManagers.managerUpdate);
+router.post('/managers/employees/:id/feedback', ctrlManagers.managerPostFeedback);
 router.post('/managers/employees/:id/goals', ctrlManagers.managerChangeGoalProgress);
 
 /* Other pages */
 router.get('/about', ctrlOthers.about);
 router.get('/login', ctrlOthers.login);
 
+/* Auth Pages */
 router.get('/logout', ctrlAuth.logout);
 router.post('/login', ctrlAuth.login);
-
-
-
-
 router.get('/bounce', ctrlAuth.bounce);
 
 module.exports = router;

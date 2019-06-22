@@ -10,8 +10,12 @@ block content
           form.form-horizontal(action=`/managers/employees/${employee._id}/feedback` method="POST")
             .form-group
               label.control-label(for="feedback") Feedback for #{employee.firstName} #{employee.lastName}
-              textarea.form-control(name="comment")
+              textarea.form-control(name="comment" style="height:400px")
             .form-group
               label.control-label(for="author") Author
               input.form-control(type="text" name="author" value=manager.firstName+" "+manager.lastName)
-            button.btn.btn-primary.col-10(type='submit') Submit
+            button.btn.btn-primary.col-12(type='submit') Submit
+    .col-12.col-md-4
+      p.lead &#129409 "Leadership contains certain elements of good management, but it requires that you inspire, that you build durable trust. For an organization to be not just good but to win, leadership means evoking participation larger than the job description, commitment deeper than any job contract's wording."
+      span -Stanley A. McChrystal
+      

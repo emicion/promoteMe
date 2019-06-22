@@ -14,9 +14,14 @@ const managerAdd = (req, res) => {
 };
 
 const managerChangeGoalProgress = async (req, res) => {
-  await Employee.findOneAndUpdate( {_id: req.params.id}, {$push: {goals: req.body} });
-  req.flash('success', 'Succesfully Posted A New Goal!');
-  res.redirect(`managers/employees/${req.params.id}/goals`);
+  for (var i = 0; i < req.body.progress.length; i++) {
+    var selectedGoal = "goals." + i.toString() + ".progress";
+    var newProgress = req.body.progress[i];
+    await Employee.update( {_id: req.params.id},  {$set: { [selectedGoal] : newProgress }});
+  };
+
+  req.flash('success', 'Succesfully Updated Goal!');
+  res.redirect(`/managers/employees/${req.params.id}/goals`);
 };
 
 const managerCreate = async (req, res, next) => {
@@ -35,6 +40,7 @@ const managerCreate = async (req, res, next) => {
     isManager: true,
     id: manager._id
   });
+
   await user.setPassword(req.body.password);
   await user.save();
 
@@ -49,7 +55,7 @@ const managerEmployeeList = async (req, res) => {
     title: 'My Employees',
     pageHeader: {
       title: 'Today is the Day ',
-      strapline: 'Help your employees achieve their goals!'
+      strapline: 'Encourage your employees!'
     },
     employees, manager
   });
@@ -60,10 +66,6 @@ const managerEdit = async (req, res) => {
   var managerHireDate = manager.hireDate.toISOString().substring(0,10);
   res.render('manager-edit', {
     title: 'Edit Profile',
-    pageHeader: {
-      title: 'Edit Profile',
-      strapline: 'Achieve your goals!'
-    },
     manager, managerHireDate
   });
 };

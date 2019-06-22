@@ -13,15 +13,13 @@ block content
               | <strong>Position:</strong> #{employee.position} <br>
               
               | <strong>Hire Date:</strong> #{employee.hireDate.toDateString()} <br><br>
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin. Velit laoreet id donec ultrices tincidunt arcu non. Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget. Lorem sed risus ultricies tristique nulla aliquet. Vitae congue mauris rhoncus aenean vel elit scelerisque mauris. Sed felis eget velit aliquet sagittis id consectetur purus. Felis imperdiet proin fermentum leo vel orci porta non pulvinar. Tellus cras adipiscing enim eu. Dignissim suspendisse in est ante in nibh mauris cursus. Quam nulla porttitor massa id neque aliquam vestibulum. Odio aenean sed adipiscing diam donec adipiscing tristique risus nec.
-
-            |Aliquam etiam erat velit scelerisque in dictum. Congue quisque egestas diam in arcu cursus euismod. Mi in nulla posuere sollicitudin aliquam. Feugiat scelerisque varius morbi enim nunc faucibus. Amet purus gravida quis blandit. Scelerisque purus semper eget duis. Mi bibendum neque egestas congue quisque egestas diam in. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget. Malesuada pellentesque elit eget gravida cum sociis. Feugiat nisl pretium fusce id velit ut tortor pretium viverra. Adipiscing enim eu turpis egestas pretium. Fermentum leo vel orci porta non. Viverra tellus in hac habitasse platea dictumst. Egestas fringilla phasellus faucibus scelerisque eleifend donec. <br><br>
+            p #{employee.biography} <br><br>
         .card
           .card-body
             h3 Accomplishments
             .accomplishments
               each accomplishment in employee.accomplishments
-                span.badge.badge-pill= accomplishment
+                span.badge.badge-pill(data-title=accomplishment) #{accomplishment}
             .progress
               .progress-bar(role='progressbar', style='width: 50%', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100') Customer Service
               .progress-bar.bg-success(role='progressbar', style='width: 25%', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100') Production
@@ -56,7 +54,7 @@ block content
       .card
         .card-body
           h3 Compliments
-          p "Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Sit amet aliquam id diam maecenas ultricies mi eget."
+          p "#{employee.firstName} is always extemely so helpful when I come in to shop. #{employee.firstName}'s excellent customer service is what keeps me coming back!"
       .row.no-gutters
         .col-6.col-md-6.custom-right
           .card

@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-// const md5 = require('md5');
-// const passportLocalMongoose = require('passport-local-mongoose');
 const slug = require('slugs');
 
 const goalSchema = new mongoose.Schema({
@@ -16,13 +14,6 @@ const goalSchema = new mongoose.Schema({
     max: 100
   }
 });
-// const accomplishmentSchema = new mongoose.Schema({
-//   accomplishmentName: {
-//     type: String,
-//     required: true
-//   },
-//   accomplishmentDescription: String
-// });
 
 const feedbackSchema = new mongoose.Schema({
   comment: String,
@@ -30,13 +21,6 @@ const feedbackSchema = new mongoose.Schema({
 });
 
 const employeeSchema = new mongoose.Schema({
-  // email: {
-  //   type: String,
-  //   unique: true,
-  //   lowercase: true,
-  //   trim: true,
-  //   required: 'An email is necessary!'
-  // },
   firstName: {
     type: String,
     required: 'Please enter a first name!'
@@ -61,10 +45,6 @@ const employeeSchema = new mongoose.Schema({
   goals: [goalSchema],
   accomplishments: [String],
   feedback: [feedbackSchema],
-  // isManager: {
-  //   type: Boolean,
-  //   'default': false
-  // },
   slug: String
 });
 
@@ -77,5 +57,4 @@ employeeSchema.pre('save', function(next) {
   next();
 });
 
-// employeeSchema.plugin(passportLocalMongoose, {usernameField: 'email'});
 mongoose.model('Employee', employeeSchema, 'Employees');

@@ -19,33 +19,11 @@ html
             li.nav-item
               a.nav-link(href=`/managers/${manager._id}/edit`) Edit
             li.nav-item
-              a.nav-link(href='/logout') Logout
+              a.nav-link(href='/logout') Logout #{manager.firstName}
     .container
       != messages('message', locals)
       block content
-    //- footer
-    //-   .container.text-center
-    //-       .row
-    //-         .col-12.col-md-4
-    //-           h5 Footer Content
-    //-           p Here you can use rows and columns to organize content
-    //-         .col-12.col-md-4
-    //-           h5 Links
-    //-           ul.list-unstyled
-    //-             li
-    //-               a(href='#!') Link 1
-    //-             li
-    //-               a(href='#!') Link 2
-    //-         .col-12.col-md-4
-    //-           h5 Links
-    //-           ul.list-unstyled
-    //-             li
-    //-               a(href='#!') Link 3
-    //-             li
-    //-               a(href='#!') Link 4
-          //- .row
-          //-   .col-12.col-md-4-center-text
-          //-     p Copyright © Christopher Andrew Calderon      
+           
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js')
     script(src='/javascripts/bootstrap.min.js')
